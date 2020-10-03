@@ -1,6 +1,6 @@
 '''
 a Python Script to scrape websites for
-email addresses and US phone numbers
+email addresses and US phone numbers and web reporter
 
 Author: Yannick Le Roux
 
@@ -18,7 +18,7 @@ s = s.get_text()
 
 phone = re.findall(r"((?:\d{3}|\(\d{3}\))?(?:\s|-|\.)?\d{3}(?:\s|-|\.)\d{4})",s)
 emails = re.findall(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}",s)
-
+facebook = re.findall(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}",s)
 if len(phone) == 0:
     print ("Sorry, no phone number found.")
 
@@ -42,3 +42,15 @@ else:
     for item in emails:
         print(count, ' email address(es) found : ', item)
         count += 1
+print('----------------------')
+print()
+if len(facebook) == 0:
+    print("Sorry, no Facebook Account found.")
+    print('------------')
+    print()
+else:
+    count = 1
+    for item in facebook:
+        print(count, ' Facebook Account(es) found : ', item)
+        count += 1
+
